@@ -1,0 +1,73 @@
+@import './variables';
+
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
+
+
+body{
+    font-family:'lato' , sans-serif;
+    -webkit-font-smoothing: antialiased;
+      color:$dark;
+}
+ nav li:last-child a{
+     background: $primary;
+     &:hover{
+        background: green;
+    }
+}
+  
+nav li a{
+    transition: all .3s ease-in-out;
+    &:hover{
+        color: green;
+    }
+   
+}
+
+.hero{
+    background-color: $gray;
+}
+.size
+{
+    background-color: $secondary;
+}
+
+.add-to-cart{
+    border: 2px solid $primary;
+    color:$primary;
+    transition: all .3s ease-in-out;
+    &:hover{
+        background-color:$primary;
+        color: $pure;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+.btn-primary{
+    border: 2px solid $primary;
+    background-color: $primary;
+    transition: all .3s ease-in-out;
+
+    &:hover{
+    
+        background-color: $primary-hover;
+    }
+}
+
+.empty-cart{
+    background-color:$gray;
+}
+
+.cart{
+    background-color: $secondary;
+}
+
+
+    .login{
+        background-color: $secondary;
+    }
+a.link{
+    color: red;
+}
+    

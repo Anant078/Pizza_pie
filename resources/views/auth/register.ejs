@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Pie</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="/css/app.css">
+   
+</head>
+<body>
+    <nav class="container mx-auto flex items-center justify-between py-4"> 
+        <div>
+          <a href="/"> <img src="/img/logo.png" alt="logo"></a>
+        </div>
+        <div>
+          <ul class="flex items-center">
+               <li class="ml-6"><a href="/">Menu</a></li>
+               <li class="ml-6"><a href="#">Offer</a></li> 
+               <li class="ml-6"><a href="/register">Register</a></li>
+               <li class="ml-6"><a href="/login">Login</a></li>
+               <li class="ml-6"><a href="/cart" class="inline-block flex px-4 py-2 rounded-full">
+                <span id="cartCounter"  class="text-white font-bold pr-2"><%= session.cart ? session.cart.totalQty : ' '%></span>
+               <img src="/img/cart.png"  alt="cart"></a></li>
+          </ul>
+        </div>
+    </nav>
+    <section class="login mt-6">
+        <div class="min-h-screen flex items-center justify-center bg-gray-50 ">
+            <div class="max-w-md w-full space-y-8 mt-2">
+              <div>
+                <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-900">
+                    Register
+                </h2>
+        
+             </div>
+              <form action="/register" method="POST" mt-8 space-y-6" action="#" method="POST">
+                <% if(messages.error) { %>
+                <span class="text-red-500 text-sm"><%=messages.error %></span>
+                <%  } %>
+                <input type="hidden" name="remember" value="true">
+                <div class="rounded-md shadow-sm  space-y-6">
+                    <div >
+                        <label for="Name" class="sr-only ">name</label>
+                        <input id="Name" name="name" type="text" autocomplete="Name" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Name">
+                      </div>
+                    <div >
+                    <label for="email-address" class="sr-only ">Email address</label>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
+                  </div>
+                  <div>
+                    <label for="password" class="sr-only">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
+                  </div>
+                </div>
+          
+                <div class="flex items-center justify-between my-4">
+                  <div class="flex items-center">
+                    <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="remember_me" class="ml-2 block text-sm text-gray-900">
+                      Remember me 
+                    </label>
+                  </div>
+          
+                  <div class="text-sm">
+                    <a href="/login" class="font-medium  hover:text-indigo-500">
+                      Already have account?
+                    </a>
+                  </div>
+                </div>
+          
+                <div>
+                  <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-bold rounded-md text-white btn-primary">
+                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                      <!-- Heroicon name: solid/lock-closed -->
+                      <svg class="h-5 w-5 text-indigo-500 group-hover:text-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                      </svg>
+                    </span>
+                     Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+    </section>
+    
+    <script src='/js/app.js'></script>
+</body>
+</html>
